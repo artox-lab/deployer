@@ -1,0 +1,21 @@
+{
+    "name": "artox-deploy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/artox-lab/deployer.git"
+    },
+    "scripts": {
+        "start": "babel-node index.js"
+    },
+    "bin": {
+        "artox-deploy": "./bin/artox-deploy.js"
+    },
+    "author": "Artox",
+    "license": "ISC",
+    "dependencies": {
+        "babel-cli": "^6.3.17"
+    }
+}

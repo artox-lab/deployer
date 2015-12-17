@@ -1,6 +1,5 @@
 import shelljs from 'shelljs';
 import fs from 'fs-extra';
-
 import { DEPLOY_DIR_NAME } from './config';
 
 export const gitClone = (url) => {

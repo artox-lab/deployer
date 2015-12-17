@@ -26,7 +26,7 @@ let githubUrl = (cachedGithubUrl || readlineSync.question(
 
 if (!githubUrl) {
   console.log(
-    error('You should enter GitHub address')
+    error('You should enter GitHub address!')
   );
   process.exit(1);
 }
@@ -39,7 +39,7 @@ if (code !== 0) {
 }
 
 console.log(
-  success('Repository cloned successfully')
+  success('Repository cloned successfully!')
 );
 
 fse.outputJSONSync(DEPLPOY_FILE_NAME, {
@@ -53,10 +53,9 @@ const projectIndex = readlineSync.keyInSelect(
 );
 if (projectIndex === -1) {
   console.log(
-    error('You should choose project')
+    error('You should choose project!')
   );
   process.exit(1);
 }
 const projectName = projects[projectIndex];
-
 const projectFile = require(`./${DEPLOY_DIR_NAME}/${projectName}/${projectName}.js`);

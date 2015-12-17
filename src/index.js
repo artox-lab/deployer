@@ -3,13 +3,12 @@ import chalk from 'chalk';
 import fs from 'fs-extra';
 import shelljs from 'shelljs';
 import { error, success } from './logger';
-import { DEPLPOY_FILE_NAME, DEPLOY_DIR_NAME } from './config';
+import { DEPLPOY_FILE_NAME } from './config';
 import getDeployConfig from './getDeployConfig';
 import { propertyOf } from 'lodash';
-
 import {
   gitClone,
-  removeDir
+  removeDeployDir
 } from './commands';
 
 const cachedGithubUrl = propertyOf(
@@ -17,7 +16,7 @@ const cachedGithubUrl = propertyOf(
 )('githubUrl');
 
 if (cachedGithubUrl) {
-  removeDir();
+  removeDeployDir();
 }
 
 let githubUrl = cachedGithubUrl  || readlineSync.question(
@@ -39,4 +38,3 @@ if (code === 0) {
 }
 
 fs.outputJSONSync(DEPLPOY_FILE_NAME, { githubUrl });
-

@@ -1,15 +1,12 @@
-import readlineSync from 'readline-sync';
-import fse from 'fs-extra';
 import fs from 'fs';
+import fse from 'fs-extra';
 import shelljs from 'shelljs';
-import { error, success, ask } from './log-types';
-import { DEPLPOY_FILE_NAME, DEPLOY_DIR_NAME } from './config';
-import getDeployConfig from './getDeployConfig';
 import { propertyOf } from 'lodash';
-import {
-  gitClone,
-  removeDeployDir
-} from './commands';
+import readlineSync from 'readline-sync';
+import getDeployConfig from './getDeployConfig';
+import { error, success, ask } from './log-types';
+import { gitClone, removeDeployDir } from './commands';
+import {DEPLPOY_FILE_NAME, DEPLOY_DIR_NAME } from './config';
 
 const cachedGithubUrl = propertyOf(
   getDeployConfig()

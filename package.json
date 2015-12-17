@@ -1,6 +1,6 @@
 {
   "name": "artox-deploy",
-  "version": "0.0.1a",
+  "version": "0.0.10",
   "description": "",
   "main": "./lib/index.js",
   "repository": {
@@ -8,6 +8,8 @@
     "url": "https://github.com/artox-lab/deployer.git"
   },
   "scripts": {
+    "start": "node ./lib/index.js",
+    "prestart": "npm run build",
     "build": "babel ./src -d ./lib"
   },
   "bin": {
@@ -15,7 +17,15 @@
   },
   "author": "Artox",
   "license": "ISC",
-  "dependencies": {
-    "babel-cli": "^6.3.17"
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015-node5": "^1.1.1",
+    "chalk": "^1.1.1",
+    "readline-sync": "^1.2.21"
+  },
+  "babel": {
+    "presets": [
+      "es2015-node5"
+    ]
   }
 }

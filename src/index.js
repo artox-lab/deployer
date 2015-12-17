@@ -1,3 +1,2 @@
-export const init = () => {
-  console.log(1111);
-};
+const readlineSync = require('readline-sync');
+const chalk = require('chalk');

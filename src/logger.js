@@ -11,3 +11,9 @@ export const success = (message) => {
     chalk.bold.green(`SUCCESS! ${message}`)
   );
 };
+
+export const ask = (message) => {
+  return console.log(
+    chalk.cyan.bold.underline(message) + ' '
+  );
+};

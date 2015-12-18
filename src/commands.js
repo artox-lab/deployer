@@ -1,11 +1,19 @@
 import shelljs from 'shelljs';
-import fs from 'fs-extra';
-import { DEPLOY_DIR_NAME } from './config';
 
-export const gitClone = (url) => {
-  return shelljs.exec(`git clone ${url} ${DEPLOY_DIR_NAME}`);
-};
-
-export const removeDeployDir = () => {
-  return shelljs.exec(`rm -rf ${DEPLOY_DIR_NAME}`);
-};
+export default {
+  exec(cmd) {
+    return shelljs.exec(cmd);
+  },
+  git() {
+    console.log('git');
+    return this;
+  },
+  remove() {
+    console.log('remove');
+    return this;
+  },
+  add() {
+    console.log('add');
+    return this;
+  }
+}

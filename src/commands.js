@@ -15,9 +15,7 @@ export default {
           resolve();
         })
         .on('error', err => {
-          console.log(
-            error(err.message, 'ERROR SSH!')
-          );
+          console.log(error(err.message, 'ERROR SSH!'));
           reject(err);
         })
         .connect(params);
@@ -25,8 +23,8 @@ export default {
   },
 
   sshClose() {
-    console.log(success('SSH closed!'));
     sshClient.end();
+    console.log(success('SSH closed!'));
     sshClient = null;
   }
 

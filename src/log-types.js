@@ -1,13 +1,13 @@
 import chalk from 'chalk';
 
-export const error = (message) => {
-  return chalk.bold.red(`ERROR! ${message}`);
+export const error = (message, type='ERROR!') => {
+  return chalk.bold.red(`${type} ${message}`);
 };
 
-export const success = (message) => {
-  return chalk.bold.green(`SUCCESS! ${message}`);
+export const success = (message, type='SUCCESS!') => {
+  return chalk.bold.green(`${type} ${message}`);
 };
 
 export const ask = (message) => {
-  return chalk.cyan.bold.underline(message) + ' ';
+  return chalk.cyan.bold(message) + ' ';
 };

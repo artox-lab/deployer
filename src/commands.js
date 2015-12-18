@@ -1,19 +1,33 @@
 import shelljs from 'shelljs';
+import { Client } from 'ssh2';
+import { success, error } from './log-types';
+
+let sshClient = null;
 
 export default {
-  exec(cmd) {
-    return shelljs.exec(cmd);
+
+  ssh(params) {
+    sshClient = new Client();
+    return new Promise((resolve, reject) => {
+      sshClient
+        .on('ready', () => {
+          console.log(success('SSH ready!'));
+          resolve();
+        })
+        .on('error', err => {
+          console.log(
+            error(err.message, 'ERROR SSH!')
+          );
+          reject(err);
+        })
+        .connect(params);
+    });
   },
-  git() {
-    console.log('git');
-    return this;
-  },
-  remove() {
-    console.log('remove');
-    return this;
-  },
-  add() {
-    console.log('add');
-    return this;
+
+  sshClose() {
+    console.log(success('SSH closed!'));
+    sshClient.end();
+    sshClient = null;
   }
+
 }

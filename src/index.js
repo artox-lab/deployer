@@ -64,8 +64,6 @@ const execFile = require(`../${DEPLOY_DIR_NAME}/${projectName}/${projectName}.js
 
 try {
   execFile(commands);
-  console.log(success('All commands executed successfully!'));
 } catch(e) {
   console.log(error(e.message));
 }
-

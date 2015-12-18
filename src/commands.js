@@ -5,7 +5,15 @@ import { success, error } from './log-types';
 let sshClient = null;
 
 export default {
+  exec(cmd) {
+    return shelljs.exec(cmd);
+  },
 
+  /**
+   * @param {Object} params
+   * {@link https://github.com/mscdex/ssh2}
+   * @returns {Promise}
+   */
   ssh(params) {
     sshClient = new Client();
     return new Promise((resolve, reject) => {
@@ -27,5 +35,4 @@ export default {
     console.log(success('SSH closed!'));
     sshClient = null;
   }
-
 }
